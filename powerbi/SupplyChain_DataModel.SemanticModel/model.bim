@@ -4,7 +4,7 @@
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"_DataCoOriginal\",\"d_Cliente\",\"d_Produto\",\"d_Loja\",\"f_Vendas\"]"
+        "value": "[\"_DataCoOriginal\",\"d_Cliente\",\"d_Produto\",\"d_Loja\",\"f_Vendas\",\"_Medidas\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -52,25 +52,18 @@
         ],
         "expression": [
           "let",
+          "    // Aponte diretamente para o arquivo de 95MB, não para a pasta!",
           "    Fonte = Csv.Document(File.Contents(\"C:\\gogogo\\gogogo\\data\\DataCoSupplyChainDataset.csv\"),[Delimiter=\",\", Columns=53, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
-          "    #\"Cabeçalhos Promovidos\" = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
-          "    #\"Tipo Alterado\" = Table.TransformColumnTypes(#\"Cabeçalhos Promovidos\",{{\"Type\", type text}, {\"Days for shipping (real)\", Int64.Type}, {\"Days for shipment (scheduled)\", Int64.Type}, {\"Benefit per order\", Int64.Type}, {\"Sales per customer\", Int64.Type}, {\"Delivery Status\", type text}, {\"Late_delivery_risk\", Int64.Type}, {\"Category Id\", Int64.Type}, {\"Category Name\", type text}, {\"Customer City\", type text}, {\"Customer Country\", type text}, {\"Customer Email\", type text}, {\"Customer Fname\", type text}, {\"Customer Id\", Int64.Type}, {\"Customer Lname\", type text}, {\"Customer Password\", type text}, {\"Customer Segment\", type text}, {\"Customer State\", type text}, {\"Customer Street\", type text}, {\"Customer Zipcode\", Int64.Type}, {\"Department Id\", Int64.Type}, {\"Department Name\", type text}, {\"Latitude\", Int64.Type}, {\"Longitude\", Int64.Type}, {\"Market\", type text}, {\"Order City\", type text}, {\"Order Country\", type text}, {\"Order Customer Id\", Int64.Type}, {\"order date (DateOrders)\", type text}, {\"Order Id\", Int64.Type}, {\"Order Item Cardprod Id\", Int64.Type}, {\"Order Item Discount\", Int64.Type}, {\"Order Item Discount Rate\", Int64.Type}, {\"Order Item Id\", Int64.Type}, {\"Order Item Product Price\", Int64.Type}, {\"Order Item Profit Ratio\", Int64.Type}, {\"Order Item Quantity\", Int64.Type}, {\"Sales\", Int64.Type}, {\"Order Item Total\", Int64.Type}, {\"Order Profit Per Order\", Int64.Type}, {\"Order Region\", type text}, {\"Order State\", type text}, {\"Order Status\", type text}, {\"Order Zipcode\", Int64.Type}, {\"Product Card Id\", Int64.Type}, {\"Product Category Id\", Int64.Type}, {\"Product Description\", type text}, {\"Product Image\", type text}, {\"Product Name\", type text}, {\"Product Price\", Int64.Type}, {\"Product Status\", Int64.Type}, {\"shipping date (DateOrders)\", type text}, {\"Shipping Mode\", type text}})",
+          "    // Promove a primeira linha a cabeçalho",
+          "    PromoverCabecalho = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true])",
           "in",
-          "    #\"Tipo Alterado\""
+          "    PromoverCabecalho"
         ],
         "kind": "m",
-        "lineageTag": "027e978d-9997-42d3-9278-a137c90b68d0"
+        "lineageTag": "2452f070-0ea2-4da0-8020-0ec8eb5c1c81"
       }
     ],
     "relationships": [
-      {
-        "name": "9c9ab63e-e5b8-45f7-abb7-e5197ef2d6e9",
-        "fromColumn": "Order Date",
-        "fromTable": "f_Vendas",
-        "joinOnDateBehavior": "datePartOnly",
-        "toColumn": "Date",
-        "toTable": "LocalDateTable_b1e1fe29-80a8-46a6-a266-1c4944bd07a8"
-      },
       {
         "name": "ca39667c-89f3-4aa4-b665-ffd138181287",
         "fromColumn": "Shipping Date",
@@ -99,6 +92,13 @@
         "fromTable": "f_Vendas",
         "toColumn": "Product Card Id",
         "toTable": "d_Produto"
+      },
+      {
+        "name": "f0374f8b-35bd-5c68-322f-22de7961a098",
+        "fromColumn": "Order Date",
+        "fromTable": "f_Vendas",
+        "toColumn": "Date",
+        "toTable": "d_Calendario"
       }
     ],
     "sourceQueryCulture": "pt-BR",
@@ -216,8 +216,7 @@
                 "value": "Automatic"
               }
             ],
-            "dataType": "int64",
-            "formatString": "0",
+            "dataType": "string",
             "lineageTag": "64b8882f-324d-4586-b03d-8267deecb542",
             "sourceColumn": "Customer Zipcode",
             "summarizeBy": "none"
@@ -238,9 +237,10 @@
                 "    // 3. Remove os clientes duplicados (deixa só 1 linha por cliente)",
                 "    RemoveDuplicadas = Table.Distinct(ColunasSelecionadas, {\"Customer Id\"}),",
                 "    // 4. Define o ID como Inteiro para otimizar a performance",
-                "    TipoAlterado = Table.TransformColumnTypes(RemoveDuplicadas,{{\"Customer Id\", Int64.Type}})",
+                "    TipoAlterado = Table.TransformColumnTypes(RemoveDuplicadas,{{\"Customer Id\", Int64.Type}}),",
+                "    #\"Duplicatas Removidas\" = Table.Distinct(TipoAlterado, {\"Customer Id\"})",
                 "in",
-                "    TipoAlterado"
+                "    #\"Duplicatas Removidas\""
               ],
               "type": "m"
             }
@@ -340,8 +340,7 @@
                 "value": "Automatic"
               }
             ],
-            "dataType": "int64",
-            "formatString": "0",
+            "dataType": "string",
             "lineageTag": "00958d07-0891-4b76-af41-75bcfaf7b7c5",
             "sourceColumn": "Product Status",
             "summarizeBy": "none"
@@ -359,9 +358,10 @@
                 "    ColunasSelecionadas = Table.SelectColumns(Fonte,{\"Product Card Id\", \"Category Id\", \"Category Name\", \"Product Name\", \"Product Price\", \"Product Status\"}),",
                 "    RemoveDuplicadas = Table.Distinct(ColunasSelecionadas, {\"Product Card Id\"}),",
                 "    // Ajusta IDs para Inteiro e Preço para Decimal Fixo (Moeda)",
-                "    TipoAlterado = Table.TransformColumnTypes(RemoveDuplicadas,{{\"Product Card Id\", Int64.Type}, {\"Category Id\", Int64.Type}, {\"Product Price\", Currency.Type}})",
+                "    TipoAlterado = Table.TransformColumnTypes(RemoveDuplicadas,{{\"Product Card Id\", Int64.Type}, {\"Category Id\", Int64.Type}, {\"Product Price\", Currency.Type}}),",
+                "    #\"Duplicatas Removidas\" = Table.Distinct(TipoAlterado, {\"Product Card Id\"})",
                 "in",
-                "    TipoAlterado"
+                "    #\"Duplicatas Removidas\""
               ],
               "type": "m"
             }
@@ -416,8 +416,7 @@
                 "value": "Automatic"
               }
             ],
-            "dataType": "int64",
-            "formatString": "0",
+            "dataType": "string",
             "lineageTag": "e4ee2c7a-7e09-4c76-8341-2729b81ccd1d",
             "sourceColumn": "Latitude",
             "summarizeBy": "none"
@@ -430,8 +429,7 @@
                 "value": "Automatic"
               }
             ],
-            "dataType": "int64",
-            "formatString": "0",
+            "dataType": "string",
             "lineageTag": "9b2b9ea1-4d38-4c77-aac9-96dbebfbc986",
             "sourceColumn": "Longitude",
             "summarizeBy": "none"
@@ -448,9 +446,10 @@
                 "    Fonte = _DataCoOriginal,",
                 "    ColunasSelecionadas = Table.SelectColumns(Fonte,{\"Department Id\", \"Department Name\", \"Latitude\", \"Longitude\"}),",
                 "    RemoveDuplicadas = Table.Distinct(ColunasSelecionadas, {\"Department Id\"}),",
-                "    TipoAlterado = Table.TransformColumnTypes(RemoveDuplicadas,{{\"Department Id\", Int64.Type}})",
+                "    TipoAlterado = Table.TransformColumnTypes(RemoveDuplicadas,{{\"Department Id\", Int64.Type}}),",
+                "    #\"Duplicatas Removidas\" = Table.Distinct(TipoAlterado, {\"Department Id\"})",
                 "in",
-                "    TipoAlterado"
+                "    #\"Duplicatas Removidas\""
               ],
               "type": "m"
             }
@@ -556,18 +555,7 @@
             "formatString": "Long Date",
             "lineageTag": "e38be103-398a-45fd-9ef2-93ad064184f7",
             "sourceColumn": "Order Date",
-            "summarizeBy": "none",
-            "variations": [
-              {
-                "name": "Variation",
-                "defaultHierarchy": {
-                  "hierarchy": "Date Hierarchy",
-                  "table": "LocalDateTable_b1e1fe29-80a8-46a6-a266-1c4944bd07a8"
-                },
-                "isDefault": true,
-                "relationship": "9c9ab63e-e5b8-45f7-abb7-e5197ef2d6e9"
-              }
-            ]
+            "summarizeBy": "none"
           },
           {
             "name": "Shipping Date",
@@ -710,11 +698,10 @@
                 "value": "Automatic"
               }
             ],
-            "dataType": "int64",
-            "formatString": "0",
+            "dataType": "string",
             "lineageTag": "ff08561f-96ff-4395-953f-74ceb1a2f83b",
             "sourceColumn": "Days for shipping (real)",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "Days for shipment (scheduled)",
@@ -724,11 +711,10 @@
                 "value": "Automatic"
               }
             ],
-            "dataType": "int64",
-            "formatString": "0",
+            "dataType": "string",
             "lineageTag": "d7bf16da-778a-4ce2-bba0-075e73a4b690",
             "sourceColumn": "Days for shipment (scheduled)",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "Late_delivery_risk",
@@ -793,48 +779,26 @@
               "expression": [
                 "let",
                 "    Fonte = _DataCoOriginal,",
-                "    // Pegando as colunas corretas (note o \"s\" minúsculo em shipping date)",
-                "    ColunasSelecionadas = Table.SelectColumns(Fonte,{\"Order Id\", \"Order Item Id\", \"Order Customer Id\", \"Order Item Cardprod Id\", \"Department Id\", \"order date (DateOrders)\", \"shipping date (DateOrders)\", \"Sales\", \"Order Item Total\", \"Order Profit Per Order\", \"Benefit per order\", \"Order Item Discount\", \"Order Item Quantity\", \"Days for shipping (real)\", \"Days for shipment (scheduled)\", \"Late_delivery_risk\", \"Order Status\", \"Delivery Status\", \"Shipping Mode\"}),",
-                "    ",
-                "    // Separando as datas das horas",
-                "    SepararDataPedido = Table.SplitColumn(ColunasSelecionadas, \"order date (DateOrders)\", Splitter.SplitTextByDelimiter(\" \", QuoteStyle.Csv), {\"Order Date\", \"Order Time\"}),",
-                "    SepararDataEnvio = Table.SplitColumn(SepararDataPedido, \"shipping date (DateOrders)\", Splitter.SplitTextByDelimiter(\" \", QuoteStyle.Csv), {\"Shipping Date\", \"Shipping Time\"}),",
-                "    ",
-                "    // Removendo as horas",
-                "    RemoveHoras = Table.RemoveColumns(SepararDataEnvio,{\"Order Time\", \"Shipping Time\"}),",
-                "    ",
-                "    // Otimizando as tipagens",
-                "    TiposAjustados = Table.TransformColumnTypes(RemoveHoras,{{\"Order Id\", Int64.Type}, {\"Order Item Id\", Int64.Type}, {\"Order Customer Id\", Int64.Type}, {\"Order Item Cardprod Id\", Int64.Type}, {\"Department Id\", Int64.Type}, {\"Order Date\", type date}, {\"Shipping Date\", type date}, {\"Sales\", Currency.Type}, {\"Order Item Total\", Currency.Type}, {\"Order Profit Per Order\", Currency.Type}, {\"Benefit per order\", Currency.Type}, {\"Order Item Discount\", Currency.Type}, {\"Order Item Quantity\", Int64.Type}, {\"Late_delivery_risk\", Int64.Type}})",
-                "in",
-                "    let",
-                "    Fonte = _DataCoOriginal,",
                 "    ColunasSelecionadas = Table.SelectColumns(Fonte,{\"Order Id\", \"Order Item Id\", \"Order Customer Id\", \"Order Item Cardprod Id\", \"Department Id\", \"order date (DateOrders)\", \"shipping date (DateOrders)\", \"Sales\", \"Order Item Total\", \"Order Profit Per Order\", \"Benefit per order\", \"Order Item Discount\", \"Order Item Quantity\", \"Days for shipping (real)\", \"Days for shipment (scheduled)\", \"Late_delivery_risk\", \"Order Status\", \"Delivery Status\", \"Shipping Mode\"}),",
                 "    ",
                 "    SepararDataPedido = Table.SplitColumn(ColunasSelecionadas, \"order date (DateOrders)\", Splitter.SplitTextByDelimiter(\" \", QuoteStyle.Csv), {\"Order Date\", \"Order Time\"}),",
                 "    SepararDataEnvio = Table.SplitColumn(SepararDataPedido, \"shipping date (DateOrders)\", Splitter.SplitTextByDelimiter(\" \", QuoteStyle.Csv), {\"Shipping Date\", \"Shipping Time\"}),",
-                "    ",
                 "    RemoveHoras = Table.RemoveColumns(SepararDataEnvio,{\"Order Time\", \"Shipping Time\"}),",
-                "    ",
-                "    // OTIMIZAÇÃO: Lendo as datas forçadamente no formato Americano (en-US) para acabar com o erro",
-                "    TiposAjustados = Table.TransformColumnTypes(RemoveHoras, {",
+                "",
+                "    // CORREÇÃO CRÍTICA: Forçando o Power BI a ler Números e Datas no formato Americano (Ponto como decimal)",
+                "    TransformacaoRegional = Table.TransformColumnTypes(RemoveHoras, {",
                 "        {\"Order Date\", type date}, ",
-                "        {\"Shipping Date\", type date}",
+                "        {\"Shipping Date\", type date},",
+                "        {\"Sales\", Currency.Type},",
+                "        {\"Order Item Total\", Currency.Type},",
+                "        {\"Order Profit Per Order\", Currency.Type},",
+                "        {\"Benefit per order\", Currency.Type},",
+                "        {\"Order Item Discount\", Currency.Type}",
                 "    }, \"en-US\"),",
                 "",
-                "    // Segunda etapa de tipagem para os números (Dinheiro e Id)",
-                "    TiposFinais = Table.TransformColumnTypes(TiposAjustados,{",
-                "        {\"Order Id\", Int64.Type}, ",
-                "        {\"Order Item Id\", Int64.Type}, ",
-                "        {\"Order Customer Id\", Int64.Type}, ",
-                "        {\"Order Item Cardprod Id\", Int64.Type}, ",
-                "        {\"Department Id\", Int64.Type}, ",
-                "        {\"Sales\", Currency.Type}, ",
-                "        {\"Order Item Total\", Currency.Type}, ",
-                "        {\"Order Profit Per Order\", Currency.Type}, ",
-                "        {\"Benefit per order\", Currency.Type}, ",
-                "        {\"Order Item Discount\", Currency.Type}, ",
-                "        {\"Order Item Quantity\", Int64.Type}, ",
-                "        {\"Late_delivery_risk\", Int64.Type}",
+                "    // Garantindo tipos inteiros para os IDs",
+                "    TiposFinais = Table.TransformColumnTypes(TransformacaoRegional,{",
+                "        {\"Order Id\", Int64.Type}, {\"Order Item Id\", Int64.Type}, {\"Order Customer Id\", Int64.Type}, {\"Order Item Cardprod Id\", Int64.Type}, {\"Department Id\", Int64.Type}, {\"Order Item Quantity\", Int64.Type}, {\"Late_delivery_risk\", Int64.Type}",
                 "    })",
                 "in",
                 "    TiposFinais"
@@ -1055,212 +1019,6 @@
         ]
       },
       {
-        "name": "LocalDateTable_b1e1fe29-80a8-46a6-a266-1c4944bd07a8",
-        "annotations": [
-          {
-            "name": "__PBI_LocalDateTable",
-            "value": "true"
-          }
-        ],
-        "columns": [
-          {
-            "name": "Date",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              }
-            ],
-            "dataCategory": "PaddedDateTableDates",
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "isHidden": true,
-            "isNameInferred": true,
-            "lineageTag": "a7d84cf7-3c64-467a-b739-3f8824d7ffd3",
-            "sourceColumn": "[Date]",
-            "summarizeBy": "none",
-            "type": "calculatedTableColumn"
-          },
-          {
-            "name": "Year",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Year"
-              }
-            ],
-            "dataCategory": "Years",
-            "dataType": "int64",
-            "expression": "YEAR([Date])",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "8eb2bd4b-9a71-451e-8c59-b25ed955b97e",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "MonthNo",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "MonthNumber"
-              }
-            ],
-            "dataCategory": "MonthOfYear",
-            "dataType": "int64",
-            "expression": "MONTH([Date])",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "1d68f984-8b3e-4cfb-a341-03b20768fcf3",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "Month",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Month"
-              }
-            ],
-            "dataCategory": "Months",
-            "dataType": "string",
-            "expression": "FORMAT([Date], \"MMMM\")",
-            "isHidden": true,
-            "lineageTag": "c879ad32-444b-43ca-b69b-e5f725564dfc",
-            "sortByColumn": "MonthNo",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "QuarterNo",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "QuarterNumber"
-              }
-            ],
-            "dataCategory": "QuarterOfYear",
-            "dataType": "int64",
-            "expression": "INT(([MonthNo] + 2) / 3)",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "ffe2c631-2c87-44df-bd36-1a5ee7714a43",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "Quarter",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Quarter"
-              }
-            ],
-            "dataCategory": "Quarters",
-            "dataType": "string",
-            "expression": "\"Qtr \" & [QuarterNo]",
-            "isHidden": true,
-            "lineageTag": "40fcb2de-4487-4384-9c36-326e49628cb1",
-            "sortByColumn": "QuarterNo",
-            "summarizeBy": "none",
-            "type": "calculated"
-          },
-          {
-            "name": "Day",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "User"
-              },
-              {
-                "name": "TemplateId",
-                "value": "Day"
-              }
-            ],
-            "dataCategory": "DayOfMonth",
-            "dataType": "int64",
-            "expression": "DAY([Date])",
-            "formatString": "0",
-            "isHidden": true,
-            "lineageTag": "1e38bb9a-1527-4b35-b1d3-7c002095100a",
-            "summarizeBy": "none",
-            "type": "calculated"
-          }
-        ],
-        "hierarchies": [
-          {
-            "name": "Date Hierarchy",
-            "annotations": [
-              {
-                "name": "TemplateId",
-                "value": "DateHierarchy"
-              }
-            ],
-            "levels": [
-              {
-                "name": "Year",
-                "column": "Year",
-                "lineageTag": "e39cc539-188f-40d1-8d86-c59e4a260e19",
-                "ordinal": 0
-              },
-              {
-                "name": "Quarter",
-                "column": "Quarter",
-                "lineageTag": "12676a3f-156b-49ee-a386-79cb84dfad18",
-                "ordinal": 1
-              },
-              {
-                "name": "Month",
-                "column": "Month",
-                "lineageTag": "367ebb2d-fd3b-4602-a5bc-c24309fa646e",
-                "ordinal": 2
-              },
-              {
-                "name": "Day",
-                "column": "Day",
-                "lineageTag": "a8c401b4-54d5-4cf4-b1a3-2efab2ef79ac",
-                "ordinal": 3
-              }
-            ],
-            "lineageTag": "418dab42-9491-4918-8d7a-81ca52e339c4"
-          }
-        ],
-        "isHidden": true,
-        "lineageTag": "2dd9cc2b-96c3-4d27-a1bd-6a0e602a22ba",
-        "partitions": [
-          {
-            "name": "LocalDateTable_b1e1fe29-80a8-46a6-a266-1c4944bd07a8",
-            "mode": "import",
-            "source": {
-              "expression": "Calendar(Date(Year(MIN('f_Vendas'[Order Date])), 1, 1), Date(Year(MAX('f_Vendas'[Order Date])), 12, 31))",
-              "type": "calculated"
-            }
-          }
-        ],
-        "showAsVariationsOnly": true
-      },
-      {
         "name": "LocalDateTable_ad92b6c9-8b10-41c3-bca4-8e318837daf3",
         "annotations": [
           {
@@ -1465,6 +1223,326 @@
           }
         ],
         "showAsVariationsOnly": true
+      },
+      {
+        "name": "d_Calendario",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "1f3effd7512f4722a1b9f9ce0884814c"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isDataTypeInferred": true,
+            "isKey": true,
+            "isNameInferred": true,
+            "lineageTag": "3301c9ac-dd54-4d8d-9c51-956e370c0974",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Ano",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "b4284781-dca1-40c3-b21e-049bcc4b8d43",
+            "sourceColumn": "[Ano]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Mês Abrev",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "63181d99-4311-4add-b9c6-58859edfa0bb",
+            "sourceColumn": "[Mês Abrev]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Mês Num",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "df5450d1-bfb4-4d7b-831d-3fbfe0dc4225",
+            "sourceColumn": "[Mês Num]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Trimestre",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "755ecefd-5764-4470-a5d8-ea4dad9d2ce1",
+            "sourceColumn": "[Trimestre]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Ano-Mês",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": true,
+            "lineageTag": "345a6e24-5b14-41bf-908d-3d5b218e644b",
+            "sourceColumn": "[Ano-Mês]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "dataCategory": "Time",
+        "lineageTag": "62e3e484-d26f-4c64-9d2c-4cdddba85e55",
+        "partitions": [
+          {
+            "name": "d_Calendario",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "",
+                "ADDCOLUMNS (",
+                "    // Cria automaticamente as datas do primeiro dia da primeira venda logada até o último",
+                "    CALENDARAUTO(),",
+                "    \"Ano\", YEAR([Date]),",
+                "    \"Mês Abrev\", FORMAT([Date], \"MMM\"),",
+                "    \"Mês Num\", MONTH([Date]),",
+                "    \"Trimestre\", \"T\" & FORMAT([Date], \"Q\"),",
+                "    \"Ano-Mês\", FORMAT([Date], \"YYYY-MM\")",
+                ")",
+                ""
+              ],
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "_Medidas",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Coluna 1",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "35dfd9b0-f6f9-40e1-a0e3-fad28b51b4d3",
+            "sourceColumn": "Coluna 1",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "a3b326e0-6c00-4314-8689-05f7a2deb24d",
+        "measures": [
+          {
+            "name": "Total Sales",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"pt-BR\"}"
+              }
+            ],
+            "expression": "SUM(f_Vendas[Sales])",
+            "formatString": "\"R$\"\\ #,0.###############;-\"R$\"\\ #,0.###############;\"R$\"\\ #,0.###############",
+            "lineageTag": "8b6bdbbe-84de-43ec-aae5-6bf9041197bd"
+          },
+          {
+            "name": "Total Profit",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"pt-BR\"}"
+              }
+            ],
+            "expression": "SUM(f_Vendas[Order Profit Per Order])",
+            "formatString": "\"R$\"\\ #,0.###############;-\"R$\"\\ #,0.###############;\"R$\"\\ #,0.###############",
+            "lineageTag": "edd1a484-89c4-4ac7-9c41-d10bd9018ce1"
+          },
+          {
+            "name": "Total Orders",
+            "expression": "DISTINCTCOUNT(f_Vendas[Order Id])",
+            "formatString": "0",
+            "lineageTag": "9f9a8544-284c-44ab-a5d1-85baee066a2c"
+          },
+          {
+            "name": "Ticket Medio",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"pt-BR\"}"
+              }
+            ],
+            "expression": "DIVIDE([Total Sales], [Total Orders], 0)",
+            "formatString": "\"R$\"\\ #,0.###############;-\"R$\"\\ #,0.###############;\"R$\"\\ #,0.###############",
+            "lineageTag": "5f0f150c-f5a2-4eca-9dbd-f0e27d1a2c3b"
+          },
+          {
+            "name": "Margem Lucro %",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "DIVIDE([Total Profit], [Total Sales], 0)",
+            "lineageTag": "18aedcdd-ac2c-473e-8ce6-04b434e1e81f"
+          },
+          {
+            "name": "Desconto Medio %",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "VAR vTotalDiscount = SUM(f_Vendas[Order Item Discount])",
+              "RETURN DIVIDE(vTotalDiscount, [Total Sales], 0)",
+              ""
+            ],
+            "lineageTag": "d36f9e09-a832-4b13-b5c9-9b7edc5366b7"
+          },
+          {
+            "name": "Rank Produtos",
+            "expression": "RANKX(ALL(d_Produto[Product Name]), [Total Sales], , DESC, Dense)",
+            "formatString": "0",
+            "lineageTag": "69e083a1-4bb1-4579-b443-849fd437fd90"
+          },
+          {
+            "name": "Sales YTD",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"pt-BR\"}"
+              }
+            ],
+            "expression": "CALCULATE([Total Sales], DATESYTD(d_Calendario[Date]))",
+            "formatString": "\"R$\"\\ #,0.###############;-\"R$\"\\ #,0.###############;\"R$\"\\ #,0.###############",
+            "lineageTag": "d43d38ae-809d-4dd1-a4fd-65c1594bdbdc"
+          },
+          {
+            "name": "Sales Last Year",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"pt-BR\"}"
+              }
+            ],
+            "expression": "CALCULATE([Total Sales], SAMEPERIODLASTYEAR(d_Calendario[Date]))",
+            "formatString": "\"R$\"\\ #,0.###############;-\"R$\"\\ #,0.###############;\"R$\"\\ #,0.###############",
+            "lineageTag": "d981e76b-736e-44f3-bbdb-2004022d0eb6"
+          },
+          {
+            "name": "Crescimento YoY %",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "VAR vSalesLY = [Sales Last Year]",
+              "RETURN DIVIDE([Total Sales] - vSalesLY, vSalesLY, 0)"
+            ],
+            "lineageTag": "7e6c25c2-2df8-4000-a6c5-de64acf2c649"
+          },
+          {
+            "name": "Pedidos Atrasados",
+            "expression": "CALCULATE([Total Orders], f_Vendas[Late_delivery_risk] = 1)",
+            "formatString": "0",
+            "lineageTag": "e5e45e44-dc03-4e37-ba0a-656e2fb73cf9"
+          },
+          {
+            "name": "Taxa de Atrasos %",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "DIVIDE([Pedidos Atrasados], [Total Orders], 0)",
+            "lineageTag": "0aabed38-9861-47e8-98c3-41339aa6c0bc"
+          },
+          {
+            "name": "Tempo Medio Entrega (Dias)",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "AVERAGE(f_Vendas[Days for shipping (real)])",
+            "lineageTag": "81dba403-619d-4e53-974d-dc433f8cd1d7"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "_Medidas",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText(\"i44FAA==\", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#\"Coluna 1\" = _t]),",
+                "    #\"Tipo Alterado\" = Table.TransformColumnTypes(Fonte,{{\"Coluna 1\", type text}})",
+                "in",
+                "    #\"Tipo Alterado\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
       }
     ]
   }

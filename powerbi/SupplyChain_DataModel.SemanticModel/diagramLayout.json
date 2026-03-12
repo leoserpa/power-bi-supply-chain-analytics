@@ -5,13 +5,13 @@
       "ordinal": 0,
       "scrollPosition": {
         "x": 0,
-        "y": 16.799999237060547
+        "y": 0
       },
       "nodes": [
         {
           "location": {
-            "x": 0,
-            "y": 45
+            "x": 1,
+            "y": 133
           },
           "nodeIndex": "d_Cliente",
           "nodeLineageTag": "063c1869-3848-4bef-9e7a-73a0afdf744a",
@@ -19,12 +19,12 @@
             "height": 348,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 2
         },
         {
           "location": {
-            "x": 355,
-            "y": 367
+            "x": 384,
+            "y": 393.00001525878906
           },
           "nodeIndex": "d_Loja",
           "nodeLineageTag": "3a670bf2-baaf-44c8-932e-eef932fdb004",
@@ -32,12 +32,12 @@
             "height": 176,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 3
         },
         {
           "location": {
-            "x": 713,
-            "y": 19
+            "x": 728,
+            "y": 252
           },
           "nodeIndex": "d_Produto",
           "nodeLineageTag": "13fd13c3-b8a3-49d1-938b-0387ecd25773",
@@ -45,11 +45,11 @@
             "height": 303,
             "width": 234
           },
-          "zIndex": 4
+          "zIndex": 5
         },
         {
           "location": {
-            "x": 334,
+            "x": 358,
             "y": 0
           },
           "nodeIndex": "f_Vendas",
@@ -58,11 +58,37 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 3
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 804.99999618530273,
+            "y": 0
+          },
+          "nodeIndex": "d_Calendario",
+          "nodeLineageTag": "62e3e484-d26f-4c64-9d2c-4cdddba85e55",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1087.9999961853027,
+            "y": 232.50000762939453
+          },
+          "nodeIndex": "_Medidas",
+          "nodeLineageTag": "a3b326e0-6c00-4314-8689-05f7a2deb24d",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 1
         }
       ],
       "name": "Todas as tabelas",
-      "zoomValue": 100,
+      "zoomValue": 63.28708772323408,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
