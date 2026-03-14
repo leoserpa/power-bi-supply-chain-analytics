@@ -1,5 +1,5 @@
 {
-  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.59\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "config": "{\"version\":\"5.66\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"type\":2,\"version\":{\"visual\":\"1.8.95\",\"report\":\"2.0.95\",\"page\":\"1.3.95\"}}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
   "layoutOptimization": 0,
   "resourcePackages": [
     {
@@ -15,133 +15,159 @@
         "name": "SharedResources",
         "type": 2
       }
+    },
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "lua_(7)16239624404222697.png",
+            "path": "lua_(7)16239624404222697.png",
+            "type": 100
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": 1
+      }
     }
   ],
   "sections": [
     {
       "config": "{}",
-      "displayName": "Página Geral",
+      "displayName": "Página 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "6c6cdd85e49428a23019",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"52499eb057db2e6e5061\",\"layouts\":[{\"id\":0,\"position\":{\"x\":481.64826881522305,\"y\":229.1602874420007,\"z\":0,\"width\":197.59928977034792,\"height\":79.5886028241679,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Ticket Medio\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Ticket Medio\"},\"Name\":\"_Medidas.Ticket Medio\",\"NativeReferenceName\":\"Ticket Médio\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Ticket Medio\"}}}]},\"columnProperties\":{\"_Medidas.Ticket Medio\":{\"displayName\":\"Ticket Médio\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 79.59,
+          "width": 197.60,
+          "x": 481.65,
+          "y": 229.16,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"74e8725d3845c4183552\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1040.1407058744703,\"y\":229.1602874420007,\"z\":2,\"width\":201.7159416405635,\"height\":79.5886028241679,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Total Orders\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Orders\"},\"Name\":\"_Medidas.Total Orders\",\"NativeReferenceName\":\"Total de Pedidos\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Orders\"}}}]},\"columnProperties\":{\"_Medidas.Total Orders\":{\"displayName\":\"Total de Pedidos\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 79.59,
+          "width": 201.72,
+          "x": 1040.14,
+          "y": 229.16,
+          "z": 2.00
+        },
+        {
+          "config": "{\"name\":\"821b68e7c4da0011bbb0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":767.0694651501701,\"y\":229.1602874420007,\"z\":1,\"width\":236.02137389236003,\"height\":79.5886028241679,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Margem Lucro %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Margem Lucro %\"},\"Name\":\"_Medidas.Margem Lucro %\",\"NativeReferenceName\":\"Margem de Lucro %\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Margem Lucro %\"}}}]},\"columnProperties\":{\"_Medidas.Margem Lucro %\":{\"formatString\":\"0.00%;-0.00%;0.00%\",\"displayName\":\"Margem de Lucro %\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 79.59,
+          "width": 236.02,
+          "x": 767.07,
+          "y": 229.16,
+          "z": 1.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"objects\":{\"background\":[{\"properties\":{\"image\":{\"image\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'lua (7).png'\"}}},\"url\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"lua_(7)16239624404222697.png\"}}},\"scaling\":{\"expr\":{\"Literal\":{\"Value\":\"'Fill'\"}}}}},\"transparency\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}",
+      "displayName": "Visão Geral",
       "displayOption": 1,
       "filters": "[]",
       "height": 720.00,
       "name": "d69ea880c26b6a865b58",
       "visualContainers": [
         {
-          "config": "{\"name\":\"192f8ca84938bc296211\",\"layouts\":[{\"id\":0,\"position\":{\"x\":141.33838087740165,\"y\":0,\"z\":1,\"width\":164.66607480862328,\"height\":79.5886028241679,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Crescimento YoY %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Crescimento YoY %\"},\"Name\":\"_Medidas.Crescimento YoY %\",\"NativeReferenceName\":\"Crescimento YoY %\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Crescimento YoY %\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}]}}}",
+          "config": "{\"name\":\"192f8ca84938bc296211\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1077.1905727064106,\"y\":135.8495117171142,\"z\":1000,\"width\":133.10507713697046,\"height\":69.9830817936649,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Crescimento YoY %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Crescimento YoY %\"},\"Name\":\"_Medidas.Crescimento YoY %\",\"NativeReferenceName\":\"Crescimento YoY %\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Crescimento YoY %\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"19D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"categoryLabels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
           "filters": "[]",
-          "height": 79.59,
-          "width": 164.67,
-          "x": 141.34,
-          "y": 0.00,
-          "z": 1.00
+          "height": 69.98,
+          "width": 133.11,
+          "x": 1077.19,
+          "y": 135.85,
+          "z": 1000.00
         },
         {
-          "config": "{\"name\":\"194e87c6120c4750683e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":439.8460969936743,\"z\":8,\"width\":530.6645218790079,\"height\":231.49794578614438,\"tabOrder\":8}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"f_Vendas.Modo de Envio\",\"active\":true}],\"Y\":[{\"queryRef\":\"_Medidas.Taxa de Atrasos %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"f_Vendas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Taxa de Atrasos %\"},\"Name\":\"_Medidas.Taxa de Atrasos %\",\"NativeReferenceName\":\"Taxa de Atrasos %\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Modo de Envio\"},\"Name\":\"f_Vendas.Modo de Envio\",\"NativeReferenceName\":\"Modo de Envio\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Taxa de Atrasos %\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Taxa de Atrasos Logísticos'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}],\"subTitle\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Onde a logística falha: identifique os modos de envio que comprometem o cliente.'\"}}}}}]}}}",
+          "config": "{\"name\":\"194e87c6120c4750683e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":708.06412167708,\"y\":445.9706192733547,\"z\":7000,\"width\":531.04809125781,\"height\":227.78807015192885,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Category\":[{\"queryRef\":\"f_Vendas.Modo de Envio\",\"active\":true}],\"Y\":[{\"queryRef\":\"_Medidas.Taxa de Atrasos %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"f_Vendas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Modo de Envio\"},\"Name\":\"f_Vendas.Modo de Envio\",\"NativeReferenceName\":\"Modo de Envio\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Taxa de Atrasos %\"},\"Name\":\"_Medidas.Taxa de Atrasos %\",\"NativeReferenceName\":\"Taxa de Atrasos %\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Taxa de Atrasos %\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFC107'\"}}}}},\"borderShow\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"borderColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"borderTransparency\":{\"expr\":{\"Literal\":{\"Value\":\"30D\"}}},\"borderSize\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFC107'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"f_Vendas\"}},\"Property\":\"Modo de Envio\"}},\"Right\":{\"Literal\":{\"Value\":\"'Primeira Classe'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#525252'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"f_Vendas\"}},\"Property\":\"Modo de Envio\"}},\"Right\":{\"Literal\":{\"Value\":\"'Segunda Classe'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#525252'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"f_Vendas\"}},\"Property\":\"Modo de Envio\"}},\"Right\":{\"Literal\":{\"Value\":\"'Mesmo Dia'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#525252'\"}}}}},\"borderShow\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"borderColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"borderSize\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}},\"borderColorMatchFill\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"f_Vendas\"}},\"Property\":\"Modo de Envio\"}},\"Right\":{\"Literal\":{\"Value\":\"'Classe Padrão'\"}}}}}]}}],\"categoryAxis\":[{\"properties\":{\"labelColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"titleColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"valueAxis\":[{\"properties\":{\"gridlineShow\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"labelColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"titleColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelPosition\":{\"expr\":{\"Literal\":{\"Value\":\"'OutsideEnd'\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Taxa de Atrasos Logísticos'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"13D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"subTitle\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Onde a logística falha: identifique os modos de envio que comprometem o cliente.'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#525252'\"}}}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
           "filters": "[{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"d_Produto\"}},\"Property\":\"Category Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"subquery\",\"Expression\":{\"Subquery\":{\"Query\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"d_Produto\",\"Type\":0},{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Category Name\"},\"Name\":\"field\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Taxa de Atrasos %\"}}}],\"Top\":10}}},\"Type\":2},{\"Name\":\"d\",\"Entity\":\"d_Produto\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Category Name\"}}],\"Table\":{\"SourceRef\":{\"Source\":\"subquery\"}}}}}]},\"type\":\"TopN\",\"howCreated\":1,\"isHiddenInViewMode\":false}]",
-          "height": 231.50,
-          "width": 530.66,
-          "x": 0.00,
-          "y": 439.85,
-          "z": 8.00
+          "height": 227.79,
+          "width": 531.05,
+          "x": 708.06,
+          "y": 445.97,
+          "z": 7000.00
         },
         {
-          "config": "{\"name\":\"245840e4070722a093d9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1078.5627899964825,\"y\":0,\"z\":4,\"width\":201.7159416405635,\"height\":79.5886028241679,\"tabOrder\":4}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Total Orders\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Orders\"},\"Name\":\"_Medidas.Total Orders\",\"NativeReferenceName\":\"Total de Pedidos\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Orders\"}}}]},\"columnProperties\":{\"_Medidas.Total Orders\":{\"displayName\":\"Total de Pedidos\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}]}}}",
+          "config": "{\"name\":\"410d6573201a3caae67a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1063.468399805692,\"y\":24.69991122129349,\"z\":12001,\"width\":175.64381312919815,\"height\":64.49421263337744,\"tabOrder\":12001}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"d_Produto.Product Name\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"d_Produto\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Product Name\"},\"Name\":\"d_Produto.Product Name\",\"NativeReferenceName\":\"Nome do Produto\"}]},\"columnProperties\":{\"d_Produto.Product Name\":{\"displayName\":\"Nome do Produto\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}],\"items\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#010307'\"}}}}}}}],\"header\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
           "filters": "[]",
-          "height": 79.59,
-          "width": 201.72,
-          "x": 1078.56,
-          "y": 0.00,
-          "z": 4.00
+          "height": 64.49,
+          "width": 175.64,
+          "x": 1063.47,
+          "y": 24.70,
+          "z": 12001.00
         },
         {
-          "config": "{\"name\":\"438baa70a06287c2a05e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":902.9189768672843,\"y\":0,\"z\":5,\"width\":197.59928977034792,\"height\":79.5886028241679,\"tabOrder\":5}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Ticket Medio\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Ticket Medio\"},\"Name\":\"_Medidas.Ticket Medio\",\"NativeReferenceName\":\"Ticket Médio\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Ticket Medio\"}}}]},\"columnProperties\":{\"_Medidas.Ticket Medio\":{\"displayName\":\"Ticket Médio\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}]}}}",
+          "config": "{\"name\":\"44f8f38c39644001c8a6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":708.06412167708,\"y\":230.53250473207257,\"z\":9000,\"width\":531.04809125781,\"height\":185.2493341597012,\"tabOrder\":9000}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Y\":[{\"queryRef\":\"_Medidas.Total Sales\"}],\"Category\":[{\"queryRef\":\"f_Vendas.Status de Entrega\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"f_Vendas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Sales\"},\"Name\":\"_Medidas.Total Sales\",\"NativeReferenceName\":\"Total Sales\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Status de Entrega\"},\"Name\":\"f_Vendas.Status de Entrega\",\"NativeReferenceName\":\"Status de Entrega\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Sales\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFC107'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"f_Vendas\"}},\"Property\":\"Status de Entrega\"}},\"Right\":{\"Literal\":{\"Value\":\"'Entrega em Atraso'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#A0A0A0'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"f_Vendas\"}},\"Property\":\"Status de Entrega\"}},\"Right\":{\"Literal\":{\"Value\":\"'Envio Antecipado'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#525252'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"f_Vendas\"}},\"Property\":\"Status de Entrega\"}},\"Right\":{\"Literal\":{\"Value\":\"'Entrega no Prazo'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#252525'\"}}}}},\"borderShow\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"f_Vendas\"}},\"Property\":\"Status de Entrega\"}},\"Right\":{\"Literal\":{\"Value\":\"'Envio Cancelado'\"}}}}}]}},{\"properties\":{\"borderShow\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"borderColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"borderTransparency\":{\"expr\":{\"Literal\":{\"Value\":\"30D\"}}}}}],\"labels\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}]}}],\"legend\":[{\"properties\":{\"labelColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Saúde das Entregas'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"13D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"subTitle\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Acompanhe o sucesso da operação: quanto das vendas de R$ 36M foi entregue com sucesso?'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#525252'\"}}}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
           "filters": "[]",
-          "height": 79.59,
-          "width": 197.60,
-          "x": 902.92,
-          "y": 0.00,
-          "z": 5.00
+          "height": 185.25,
+          "width": 531.05,
+          "x": 708.06,
+          "y": 230.53,
+          "z": 9000.00
         },
         {
-          "config": "{\"name\":\"44f8f38c39644001c8a6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":562.7180836032433,\"y\":94.37993174358193,\"z\":10,\"width\":680.2478099254396,\"height\":304.50883638023606,\"tabOrder\":10}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Y\":[{\"queryRef\":\"_Medidas.Total Sales\"}],\"Category\":[{\"queryRef\":\"f_Vendas.Status de Entrega\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"f_Vendas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Sales\"},\"Name\":\"_Medidas.Total Sales\",\"NativeReferenceName\":\"Total Sales\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Status de Entrega\"},\"Name\":\"f_Vendas.Status de Entrega\",\"NativeReferenceName\":\"Status de Entrega\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Sales\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Saúde das Entregas'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}],\"subTitle\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Acompanhe o sucesso da operação: quanto das vendas de R$ 36M foi entregue com sucesso?'\"}}}}}]}}}",
+          "config": "{\"name\":\"5ddbdb300b450902ddec\",\"layouts\":[{\"id\":0,\"position\":{\"x\":710.8085562572238,\"y\":24.69991122129349,\"z\":12002,\"width\":175.64381312919815,\"height\":64.49421263337744,\"tabOrder\":12002}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"f_Vendas.Mercado\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"f_Vendas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Mercado\"},\"Name\":\"f_Vendas.Mercado\",\"NativeReferenceName\":\"Mercado\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}],\"items\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#010307'\"}}}}}}}],\"header\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
           "filters": "[]",
-          "height": 304.51,
-          "width": 680.25,
-          "x": 562.72,
-          "y": 94.38,
-          "z": 10.00
+          "height": 64.49,
+          "width": 175.64,
+          "x": 710.81,
+          "y": 24.70,
+          "z": 12002.00
         },
         {
-          "config": "{\"name\":\"5db5648fc50357a07e85\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1002.5641805969176,\"y\":619.7021933352172,\"z\":11,\"width\":201.2251374910332,\"height\":80.13390431058843,\"tabOrder\":11}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"d_Calendario.Ano\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"d_Calendario\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Ano\"},\"Name\":\"d_Calendario.Ano\",\"NativeReferenceName\":\"Ano\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}}",
+          "config": "{\"name\":\"6570f455a2900444ba02\",\"layouts\":[{\"id\":0,\"position\":{\"x\":293.65450007537817,\"y\":135.8495117171142,\"z\":0,\"width\":157.80498835826396,\"height\":69.9830817936649,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Total Sales\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Sales\"},\"Name\":\"_Medidas.Total Sales\",\"NativeReferenceName\":\"Faturamento Total\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Sales\"}}}]},\"columnProperties\":{\"_Medidas.Total Sales\":{\"displayName\":\"Faturamento Total\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"19D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"categoryLabels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
           "filters": "[]",
-          "height": 80.13,
-          "width": 201.23,
-          "x": 1002.56,
-          "y": 619.70,
-          "z": 11.00
-        },
-        {
-          "config": "{\"name\":\"6570f455a2900444ba02\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":141.33838087740165,\"height\":79.5886028241679,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Total Sales\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Sales\"},\"Name\":\"_Medidas.Total Sales\",\"NativeReferenceName\":\"Faturamento Total\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Sales\"}}}]},\"columnProperties\":{\"_Medidas.Total Sales\":{\"displayName\":\"Faturamento Total\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}]}}}",
-          "filters": "[]",
-          "height": 79.59,
-          "width": 141.34,
-          "x": 0.00,
-          "y": 0.00,
+          "height": 69.98,
+          "width": 157.80,
+          "x": 293.65,
+          "y": 135.85,
           "z": 0.00
         },
         {
-          "config": "{\"name\":\"7b000688e09ca03d6e9e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1002.5641805969176,\"y\":423.8193161315566,\"z\":12,\"width\":201.2251374910332,\"height\":80.13390431058843,\"tabOrder\":12}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"f_Vendas.Mercado\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"f_Vendas\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Mercado\"},\"Name\":\"f_Vendas.Mercado\",\"NativeReferenceName\":\"Mercado\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}}",
+          "config": "{\"name\":\"86cc81c337e99912356a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":820.5859394629726,\"y\":135.8495117171142,\"z\":6000,\"width\":164.66607480862328,\"height\":69.9830817936649,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Taxa de Atrasos %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Taxa de Atrasos %\"},\"Name\":\"_Medidas.Taxa de Atrasos %\",\"NativeReferenceName\":\"Taxa de Atrasos Geral (%)\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Taxa de Atrasos %\"}}}]},\"columnProperties\":{\"_Medidas.Taxa de Atrasos %\":{\"displayName\":\"Taxa de Atrasos Geral (%)\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"19D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"categoryLabels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
           "filters": "[]",
-          "height": 80.13,
-          "width": 201.23,
-          "x": 1002.56,
-          "y": 423.82,
-          "z": 12.00
+          "height": 69.98,
+          "width": 164.67,
+          "x": 820.59,
+          "y": 135.85,
+          "z": 6000.00
         },
         {
-          "config": "{\"name\":\"86cc81c337e99912356a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":459.6927921740733,\"y\":0,\"z\":6,\"width\":204.46037622070722,\"height\":79.5886028241679,\"tabOrder\":6}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Taxa de Atrasos %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Taxa de Atrasos %\"},\"Name\":\"_Medidas.Taxa de Atrasos %\",\"NativeReferenceName\":\"Taxa de Atrasos Geral (%)\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Taxa de Atrasos %\"}}}]},\"columnProperties\":{\"_Medidas.Taxa de Atrasos %\":{\"displayName\":\"Taxa de Atrasos Geral (%)\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}]}}}",
+          "config": "{\"name\":\"af8e86c1527c9b6d38d9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":562.6090889294628,\"y\":135.8495117171142,\"z\":2000,\"width\":135.8495117171142,\"height\":69.9830817936649,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Total Profit\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Profit\"},\"Name\":\"_Medidas.Total Profit\",\"NativeReferenceName\":\"Lucro Total\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Profit\"}}}]},\"columnProperties\":{\"_Medidas.Total Profit\":{\"displayName\":\"Lucro Total\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"19D\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"categoryLabels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
           "filters": "[]",
-          "height": 79.59,
-          "width": 204.46,
-          "x": 459.69,
-          "y": 0.00,
-          "z": 6.00
+          "height": 69.98,
+          "width": 135.85,
+          "x": 562.61,
+          "y": 135.85,
+          "z": 2000.00
         },
         {
-          "config": "{\"name\":\"af8e86c1527c9b6d38d9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":306.0044556860249,\"y\":0,\"z\":2,\"width\":153.68833648804838,\"height\":79.5886028241679,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Total Profit\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Profit\"},\"Name\":\"_Medidas.Total Profit\",\"NativeReferenceName\":\"Lucro Total\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Profit\"}}}]},\"columnProperties\":{\"_Medidas.Total Profit\":{\"displayName\":\"Lucro Total\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}]}}}",
+          "config": "{\"name\":\"d3f9f113ca9c0637b30a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":886.452369386422,\"y\":24.69991122129349,\"z\":12000,\"width\":175.64381312919815,\"height\":64.49421263337744,\"tabOrder\":12000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"d_Calendario.Ano\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d1\",\"Entity\":\"d_Calendario\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Ano\"},\"Name\":\"d_Calendario.Ano\",\"NativeReferenceName\":\"Ano\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}],\"items\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}},\"background\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#010307'\"}}}}}}}],\"header\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
           "filters": "[]",
-          "height": 79.59,
-          "width": 153.69,
-          "x": 306.00,
-          "y": 0.00,
-          "z": 2.00
+          "height": 64.49,
+          "width": 175.64,
+          "x": 886.45,
+          "y": 24.70,
+          "z": 12000.00
         },
         {
-          "config": "{\"name\":\"d3f9f113ca9c0637b30a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":986.5373997347999,\"y\":503.95322044214504,\"z\":13,\"width\":226.15568549877182,\"height\":83.69541116883681,\"tabOrder\":13}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"d_Produto.Product Name\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"d_Produto\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Product Name\"},\"Name\":\"d_Produto.Product Name\",\"NativeReferenceName\":\"Nome do Produto\"}]},\"columnProperties\":{\"d_Produto.Product Name\":{\"displayName\":\"Nome do Produto\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}}",
+          "config": "{\"name\":\"f7b0a867d3d3755068b0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":237.3935911824319,\"y\":230.53250473207257,\"z\":8000,\"width\":445.9706192733547,\"height\":443.226184693211,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Group\":[{\"queryRef\":\"f_Vendas.Mercado\",\"active\":true}],\"Values\":[{\"queryRef\":\"_Medidas.Total Sales\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"f_Vendas\",\"Type\":0},{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Sales\"},\"Name\":\"_Medidas.Total Sales\",\"NativeReferenceName\":\"Total Sales\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Mercado\"},\"Name\":\"f_Vendas.Mercado\",\"NativeReferenceName\":\"Mercado\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFC107'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"f_Vendas\"}},\"Property\":\"Mercado\"}},\"Right\":{\"Literal\":{\"Value\":\"'Ásia-Pacífico'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#525252'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"f_Vendas\"}},\"Property\":\"Mercado\"}},\"Right\":{\"Literal\":{\"Value\":\"'EUA/Canadá'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#807142'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"f_Vendas\"}},\"Property\":\"Mercado\"}},\"Right\":{\"Literal\":{\"Value\":\"'África'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#BFA141'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"f_Vendas\"}},\"Property\":\"Mercado\"}},\"Right\":{\"Literal\":{\"Value\":\"'América Latina'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#333333'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"f_Vendas\"}},\"Property\":\"Mercado\"}},\"Right\":{\"Literal\":{\"Value\":\"'Europa'\"}}}}}]}}],\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}]}}],\"layout\":[{\"properties\":{\"tilingMethod\":{\"expr\":{\"Literal\":{\"Value\":\"'binary'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'\\tVendas por Mercado'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"13D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":0}}}}}}}],\"subTitle\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Onde está o dinheiro: identifique os mercados que lideram o faturamento global.'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#525252'\"}}}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
           "filters": "[]",
-          "height": 83.70,
-          "width": 226.16,
-          "x": 986.54,
-          "y": 503.95,
-          "z": 13.00
-        },
-        {
-          "config": "{\"name\":\"f7b0a867d3d3755068b0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":17.807534291241875,\"y\":94.37993174358193,\"z\":9,\"width\":512.856987587766,\"height\":300.9473295219877,\"tabOrder\":9}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Group\":[{\"queryRef\":\"f_Vendas.Mercado\",\"active\":true}],\"Values\":[{\"queryRef\":\"_Medidas.Total Sales\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"f_Vendas\",\"Type\":0},{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Total Sales\"},\"Name\":\"_Medidas.Total Sales\",\"NativeReferenceName\":\"Total Sales\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Mercado\"},\"Name\":\"f_Vendas.Mercado\",\"NativeReferenceName\":\"Mercado\"}]},\"drillFilterOtherVisuals\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'\\tVendas por Mercado'\"}}},\"alignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}}}],\"subTitle\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Onde está o dinheiro: identifique os mercados que lideram o faturamento global.'\"}}}}}]}}}",
-          "filters": "[]",
-          "height": 300.95,
-          "width": 512.86,
-          "x": 17.81,
-          "y": 94.38,
-          "z": 9.00
-        },
-        {
-          "config": "{\"name\":\"f86a8b450bd2a42b6d89\",\"layouts\":[{\"id\":0,\"position\":{\"x\":639.453257173487,\"y\":0,\"z\":3,\"width\":236.02137389236003,\"height\":79.5886028241679,\"tabOrder\":3}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Medidas.Margem Lucro %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"_\",\"Entity\":\"_Medidas\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Margem Lucro %\"},\"Name\":\"_Medidas.Margem Lucro %\",\"NativeReferenceName\":\"Margem de Lucro %\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"_\"}},\"Property\":\"Margem Lucro %\"}}}]},\"columnProperties\":{\"_Medidas.Margem Lucro %\":{\"formatString\":\"0.00%;-0.00%;0.00%\",\"displayName\":\"Margem de Lucro %\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"20D\"}}}}}]}}}",
-          "filters": "[]",
-          "height": 79.59,
-          "width": 236.02,
-          "x": 639.45,
-          "y": 0.00,
-          "z": 3.00
+          "height": 443.23,
+          "width": 445.97,
+          "x": 237.39,
+          "y": 230.53,
+          "z": 8000.00
         }
       ],
       "width": 1280.00
