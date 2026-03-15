@@ -1809,6 +1809,16 @@
                     "nome da categoria": {
                       "State": "Generated"
                     }
+                  },
+                  {
+                    "Categoria de Produto": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
                   }
                 ]
               },
@@ -5225,6 +5235,48 @@
                   }
                 ]
               },
+              "table_medidas.média_dias_programado": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Medidas",
+                    "ConceptualProperty": "Média Dias Programado"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "Média Prazo Prometido (Dias)": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
+              "table_medidas.média_dias_real": {
+                "Definition": {
+                  "Binding": {
+                    "ConceptualEntity": "_Medidas",
+                    "ConceptualProperty": "Média Dias Real"
+                  }
+                },
+                "State": "Generated",
+                "Terms": [
+                  {
+                    "Média Prazo Efetivo (Dias)": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  }
+                ]
+              },
               "v_Medidas_medida": {
                 "Definition": {
                   "Binding": {
@@ -5990,6 +6042,16 @@
                   },
                   {
                     "Faturamento Total": {
+                      "Source": {
+                        "Agent": "PowerBI.VisualColumnRename",
+                        "Type": "External"
+                      },
+                      "State": "Suggested",
+                      "Weight": 0.9
+                    }
+                  },
+                  {
+                    "Faturamento ($)": {
                       "Source": {
                         "Agent": "PowerBI.VisualColumnRename",
                         "Type": "External"
@@ -9341,29 +9403,58 @@
                 "    TipoAlterado = Table.TransformColumnTypes(RemoveDuplicadas,{{\"Product Card Id\", Int64.Type}, {\"Category Id\", Int64.Type}, {\"Product Price\", Currency.Type}}),",
                 "    #\"Duplicatas Removidas\" = Table.Distinct(TipoAlterado, {\"Product Card Id\"}),",
                 "",
-                "    // 🚀 TRADUÇÃO: Criando a coluna de Categoria em Português",
+                "    // 🚀 TRADUÇÃO COMPLETA: Injetando as 50 categorias traduzidas no seu código",
                 "    TraduzirCategoria = Table.AddColumn(#\"Duplicatas Removidas\", \"Nome da Categoria\", each ",
                 "        if [Category Name] = \"Accessories\" then \"Acessórios\"",
-                "        else if [Category Name] = \"Apparel\" then \"Vestuário\"",
+                "        else if [Category Name] = \"As Seen on  TV!\" then \"Visto na TV\"",
+                "        else if [Category Name] = \"Baby \" then \"Bebê\"",
+                "        else if [Category Name] = \"Baseball & Softball\" then \"Beisebol e Softbol\"",
                 "        else if [Category Name] = \"Basketball\" then \"Basquete\"",
+                "        else if [Category Name] = \"Books \" then \"Livros\"",
+                "        else if [Category Name] = \"Boxing & MMA\" then \"Boxe e MMA\"",
+                "        else if [Category Name] = \"CDs \" then \"CDs\"",
                 "        else if [Category Name] = \"Cameras \" then \"Câmeras\"",
+                "        else if [Category Name] = \"Camping & Hiking\" then \"Camping e Trilha\"",
+                "        else if [Category Name] = \"Cardio Equipment\" then \"Equipamento Cardio\"",
+                "        else if [Category Name] = \"Children's Clothing\" then \"Roupa Infantil\"",
+                "        else if [Category Name] = \"Cleats\" then \"Chuteiras\"",
                 "        else if [Category Name] = \"Computers\" then \"Computadores\"",
-                "        else if [Category Name] = \"Consumer Electronics\" then \"Eletrônicos\"",
+                "        else if [Category Name] = \"Consumer Electronics\" then \"Eletrônicos de Consumo\"",
+                "        else if [Category Name] = \"Crafts\" then \"Artesanato\"",
+                "        else if [Category Name] = \"DVDs\" then \"DVDs\"",
                 "        else if [Category Name] = \"Electronics\" then \"Eletrônicos\"",
                 "        else if [Category Name] = \"Fishing\" then \"Pesca\"",
-                "        else if [Category Name] = \"Footwear\" then \"Calçados\"",
+                "        else if [Category Name] = \"Fitness Accessories\" then \"Acessórios de Fitness\"",
+                "        else if [Category Name] = \"Garden\" then \"Jardim\"",
+                "        else if [Category Name] = \"Girls' Apparel\" then \"Roupas de Menina\"",
                 "        else if [Category Name] = \"Golf Apparel\" then \"Roupas de Golfe\"",
+                "        else if [Category Name] = \"Golf Bags & Carts\" then \"Sacos e Carrinhos de Golfe\"",
+                "        else if [Category Name] = \"Golf Balls\" then \"Bolas de Golfe\"",
+                "        else if [Category Name] = \"Golf Gloves\" then \"Luvas de Golfe\"",
+                "        else if [Category Name] = \"Golf Shoes\" then \"Sapatos de Golfe\"",
                 "        else if [Category Name] = \"Health and Beauty \" then \"Saúde e Beleza\"",
+                "        else if [Category Name] = \"Hockey\" then \"Hóquei\"",
+                "        else if [Category Name] = \"Hunting & Shooting\" then \"Caça e Tiro\"",
+                "        else if [Category Name] = \"Indoor/Outdoor Games\" then \"Jogos Internos/Externos\"",
+                "        else if [Category Name] = \"Kids' Golf Clubs\" then \"Tacos de Golfe Infantil\"",
+                "        else if [Category Name] = \"Lacrosse\" then \"Lacrosse\"",
+                "        else if [Category Name] = \"Men's Clothing\" then \"Roupas Masculinas\"",
                 "        else if [Category Name] = \"Men's Footwear\" then \"Calçados Masculinos\"",
+                "        else if [Category Name] = \"Men's Golf Clubs\" then \"Tacos de Golfe Masculinos\"",
                 "        else if [Category Name] = \"Music\" then \"Música\"",
-                "        else if [Category Name] = \"Outdoors\" then \"Ar Livre / Camping\"",
-                "        else if [Category Name] = \"Pet Shop\" then \"Pet Shop\"",
+                "        else if [Category Name] = \"Pet Supplies\" then \"Suprimentos para Pets\"",
+                "        else if [Category Name] = \"Shop By Sport\" then \"Comprar por Esporte\"",
                 "        else if [Category Name] = \"Soccer\" then \"Futebol\"",
-                "        else if [Category Name] = \"Technology\" then \"Tecnologia\"",
+                "        else if [Category Name] = \"Sporting Goods\" then \"Artigos Esportivos\"",
+                "        else if [Category Name] = \"Strength Training\" then \"Treino de Força\"",
+                "        else if [Category Name] = \"Tennis & Racquet\" then \"Tênis e Raquetes\"",
                 "        else if [Category Name] = \"Toys\" then \"Brinquedos\"",
+                "        else if [Category Name] = \"Trade-In\" then \"Troca/Usados\"",
                 "        else if [Category Name] = \"Video Games\" then \"Vídeo Games\"",
                 "        else if [Category Name] = \"Water Sports\" then \"Esportes Aquáticos\"",
                 "        else if [Category Name] = \"Women's Apparel\" then \"Roupas Femininas\"",
+                "        else if [Category Name] = \"Women's Clothing\" then \"Roupas Femininas\"",
+                "        else if [Category Name] = \"Women's Golf Clubs\" then \"Tacos de Golfe Femininos\"",
                 "        else [Category Name], type text)",
                 "in",
                 "    TraduzirCategoria"
@@ -9731,10 +9822,11 @@
                 "value": "Automatic"
               }
             ],
-            "dataType": "string",
+            "dataType": "int64",
+            "formatString": "0",
             "lineageTag": "ff08561f-96ff-4395-953f-74ceb1a2f83b",
             "sourceColumn": "Days for shipping (real)",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "Days for shipment (scheduled)",
@@ -9744,10 +9836,11 @@
                 "value": "Automatic"
               }
             ],
-            "dataType": "string",
+            "dataType": "int64",
+            "formatString": "0",
             "lineageTag": "d7bf16da-778a-4ce2-bba0-075e73a4b690",
             "sourceColumn": "Days for shipment (scheduled)",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "Late_delivery_risk",
@@ -9879,6 +9972,19 @@
             "lineageTag": "031f1be9-e557-4645-a3e8-91d6146928b2",
             "sourceColumn": "Status do Pedido",
             "summarizeBy": "none"
+          },
+          {
+            "name": "Região do Pedido",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3a390253-8ecb-42a1-9f4b-487647f229c6",
+            "sourceColumn": "Região do Pedido",
+            "summarizeBy": "none"
           }
         ],
         "lineageTag": "28ed4c14-2468-418f-8b5b-a1e222dbe0ab",
@@ -9890,14 +9996,12 @@
               "expression": [
                 "let",
                 "    Fonte = _DataCoOriginal,",
-                "    // INCLUSÃO: Adicionei \"Market\" e \"Order Region\" na lista abaixo",
                 "    ColunasSelecionadas = Table.SelectColumns(Fonte,{\"Order Id\", \"Order Item Id\", \"Order Customer Id\", \"Order Item Cardprod Id\", \"Department Id\", \"order date (DateOrders)\", \"shipping date (DateOrders)\", \"Sales\", \"Order Item Total\", \"Order Profit Per Order\", \"Benefit per order\", \"Order Item Discount\", \"Order Item Quantity\", \"Days for shipping (real)\", \"Days for shipment (scheduled)\", \"Late_delivery_risk\", \"Order Status\", \"Delivery Status\", \"Shipping Mode\", \"Market\", \"Order Region\"}),",
                 "    ",
                 "    SepararDataPedido = Table.SplitColumn(ColunasSelecionadas, \"order date (DateOrders)\", Splitter.SplitTextByDelimiter(\" \", QuoteStyle.Csv), {\"Order Date\", \"Order Time\"}),",
                 "    SepararDataEnvio = Table.SplitColumn(SepararDataPedido, \"shipping date (DateOrders)\", Splitter.SplitTextByDelimiter(\" \", QuoteStyle.Csv), {\"Shipping Date\", \"Shipping Time\"}),",
                 "    RemoveHoras = Table.RemoveColumns(SepararDataEnvio,{\"Order Time\", \"Shipping Time\"}),",
                 "",
-                "    // MANTIDO: Toda a lógica regional que consertou os valores financeiros",
                 "    TransformacaoRegional = Table.TransformColumnTypes(RemoveHoras, {",
                 "        {\"Order Date\", type date}, ",
                 "        {\"Shipping Date\", type date},",
@@ -9910,12 +10014,19 @@
                 "        {\"Order Region\", type text}",
                 "    }, \"en-US\"),",
                 "",
-                "    // MANTIDO: Configuração de tipos inteiros",
+                "    // ✅ CORREÇÃO AQUI: Garanti que os dias de envio sejam reconhecidos como NÚMEROS",
                 "    TiposFinais = Table.TransformColumnTypes(TransformacaoRegional,{",
-                "        {\"Order Id\", Int64.Type}, {\"Order Item Id\", Int64.Type}, {\"Order Customer Id\", Int64.Type}, {\"Order Item Cardprod Id\", Int64.Type}, {\"Department Id\", Int64.Type}, {\"Order Item Quantity\", Int64.Type}, {\"Late_delivery_risk\", Int64.Type}",
+                "        {\"Order Id\", Int64.Type}, ",
+                "        {\"Order Item Id\", Int64.Type}, ",
+                "        {\"Order Customer Id\", Int64.Type}, ",
+                "        {\"Order Item Cardprod Id\", Int64.Type}, ",
+                "        {\"Department Id\", Int64.Type}, ",
+                "        {\"Order Item Quantity\", Int64.Type}, ",
+                "        {\"Late_delivery_risk\", Int64.Type},",
+                "        {\"Days for shipping (real)\", Int64.Type},",
+                "        {\"Days for shipment (scheduled)\", Int64.Type}",
                 "    }),",
                 "",
-                "    // 🚀 INÍCIO DA TRADUÇÃO (Novas colunas para o Dashboard)",
                 "    TraduzirStatusEntrega = Table.AddColumn(TiposFinais, \"Status de Entrega\", each ",
                 "        if [Delivery Status] = \"Advance shipping\" then \"Envio Antecipado\"",
                 "        else if [Delivery Status] = \"Late delivery\" then \"Entrega em Atraso\"",
@@ -9945,9 +10056,39 @@
                 "        else if [Order Status] = \"PROCESSING\" then \"Processando\"",
                 "        else if [Order Status] = \"CANCELED\" then \"Cancelado\"",
                 "        else if [Order Status] = \"CLOSED\" then \"Fechado\"",
-                "        else [Order Status], type text)",
+                "        else if [Order Status] = \"ON_HOLD\" then \"Em Espera\"",
+                "        else if [Order Status] = \"PENDING_PAYMENT\" then \"Pagamento Pendente\"",
+                "        else if [Order Status] = \"PAYMENT_REVIEW\" then \"Revisão de Pagamento\"",
+                "        else if [Order Status] = \"SUSPECTED_FRAUD\" then \"Suspeita de Fraude\"",
+                "        else [Order Status], type text),",
+                "",
+                "    TraduzirRegiao = Table.AddColumn(TraduzirStatusPedido, \"Região do Pedido\", each ",
+                "        if [Order Region] = \"Canada\" then \"Canadá\"",
+                "        else if [Order Region] = \"Caribbean\" then \"Caribe\"",
+                "        else if [Order Region] = \"Central Africa\" then \"África Central\"",
+                "        else if [Order Region] = \"Central America\" then \"América Central\"",
+                "        else if [Order Region] = \"Central Asia\" then \"Ásia Central\"",
+                "        else if [Order Region] = \"East Africa\" then \"África Oriental\"",
+                "        else if [Order Region] = \"East of USA\" then \"Leste dos EUA\"",
+                "        else if [Order Region] = \"Eastern Asia\" then \"Ásia Oriental\"",
+                "        else if [Order Region] = \"Eastern Europe\" then \"Europa Oriental\"",
+                "        else if [Order Region] = \"North Africa\" then \"Norte da África\"",
+                "        else if [Order Region] = \"Northern Europe\" then \"Norte da Europa\"",
+                "        else if [Order Region] = \"Oceania\" then \"Oceania\"",
+                "        else if [Order Region] = \"South America\" then \"América do Sul\"",
+                "        else if [Order Region] = \"South Asia\" then \"Ásia do Sul\"",
+                "        else if [Order Region] = \"South of  USA\" then \"Sul dos EUA\"",
+                "        else if [Order Region] = \"Southeast Asia\" then \"Sudeste Asiático\"",
+                "        else if [Order Region] = \"Southern Africa\" then \"África Austral\"",
+                "        else if [Order Region] = \"Southern Europe\" then \"Sul da Europa\"",
+                "        else if [Order Region] = \"US Center\" then \"Centro dos EUA\"",
+                "        else if [Order Region] = \"West Africa\" then \"África Ocidental\"",
+                "        else if [Order Region] = \"West Asia\" then \"Ásia Ocidental\"",
+                "        else if [Order Region] = \"West of USA\" then \"Oeste dos EUA\"",
+                "        else if [Order Region] = \"Western Europe\" then \"Europa Ocidental\"",
+                "        else [Order Region], type text)",
                 "in",
-                "    TraduzirStatusPedido"
+                "    TraduzirRegiao"
               ],
               "type": "m"
             }
@@ -10646,6 +10787,69 @@
             ],
             "expression": "AVERAGE(f_Vendas[Days for shipping (real)])",
             "lineageTag": "81dba403-619d-4e53-974d-dc433f8cd1d7"
+          },
+          {
+            "name": "Faturamento Acumulado Pareto",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"pt-BR\"}"
+              }
+            ],
+            "expression": [
+              "",
+              "VAR FaturamentoAtual = [Total Sales]",
+              "RETURN",
+              "CALCULATE(",
+              "    [Total Sales],",
+              "    FILTER(",
+              "        ALLSELECTED('d_Produto'[Nome da Categoria]),",
+              "        [Total Sales] >= FaturamentoAtual",
+              "    )",
+              ")",
+              ""
+            ],
+            "formatString": "\"R$\"\\ #,0.###############;-\"R$\"\\ #,0.###############;\"R$\"\\ #,0.###############",
+            "lineageTag": "871e3dcf-d342-4dc1-a8cb-a123d8c09991"
+          },
+          {
+            "name": "% Acumulado Pareto",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    [Faturamento Acumulado Pareto],",
+              "    CALCULATE([Total Sales], ALLSELECTED('d_Produto'[Nome da Categoria]))",
+              ")",
+              ""
+            ],
+            "lineageTag": "30be0df9-577f-42e3-bd49-9560d2ea573c"
+          },
+          {
+            "name": "Média Dias Real",
+            "expression": [
+              "AVERAGE(f_Vendas[Days for shipping (real)])",
+              ""
+            ],
+            "formatString": "0",
+            "lineageTag": "5d677952-eb8f-4c58-b15f-fd7c02de0c31"
+          },
+          {
+            "name": "Média Dias Programado",
+            "expression": "AVERAGE(f_Vendas[Days for shipment (scheduled)])",
+            "formatString": "0",
+            "lineageTag": "3b3dc1e6-13de-47c1-9eec-581cdd830473"
+          },
+          {
+            "name": "Diferença de Entrega (Atraso)",
+            "expression": "[Média Dias Real] - [Média Dias Programado]",
+            "formatString": "0",
+            "lineageTag": "dd47aaf0-1d0d-4d73-a614-64f32acd31d9"
           }
         ],
         "partitions": [
